@@ -12,7 +12,7 @@ Rectangle {
     anchors.verticalCenter: parent.verticalCenter
     width: parent.width
     height: parent.height
-    color: "#333333"
+    color: "#6E5501"
     visible: false
 
     Rectangle {
@@ -95,7 +95,7 @@ Rectangle {
             Text {
                 id: textLockedUnit
                 color: "#cfcfcf"
-                text: "TRTL"
+                text: "MTIP"
                 anchors.right: parent.right
                 anchors.rightMargin: 18
                 anchors.bottom: parent.bottom
@@ -109,7 +109,7 @@ Rectangle {
             Text {
                 id: textAvailableUnit
                 color: "#cfcfcf"
-                text: "TRTL"
+                text: "MTIP"
                 font.family: "Arial"
                 font.pixelSize: 15
                 anchors.right: textLockedUnit.right
@@ -224,7 +224,7 @@ Rectangle {
         Text {
             id: textBalanceUnit
             color: "#ffffff"
-            text: "TRTL"
+            text: "MTIP"
             verticalAlignment: Text.AlignBottom
             anchors.left: textBalanceValue.right
             anchors.leftMargin: 15
@@ -391,7 +391,7 @@ Rectangle {
         Text {
             id: textDescrCopyAddress
             color: "#858585"
-            text: "Copy your address to receive TRTL"
+            text: "Copy your address to receive MTIP"
             anchors.verticalCenter: buttonCopy.verticalCenter
             anchors.right: buttonCopy.left
             anchors.rightMargin: 15
@@ -606,7 +606,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputTransferAddress
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             anchors.right: parent.right
             anchors.rightMargin: 5
@@ -619,7 +619,7 @@ Rectangle {
             TextInput {
                 id: textInputTransferAddress
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -658,7 +658,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputTransferAmount
-            color: "#555555"
+            color: "#BA9F81"
             anchors.left: textTransferAmountDescr.left
             anchors.leftMargin: 0
             anchors.top: textTransferAmountDescr.bottom
@@ -670,7 +670,7 @@ Rectangle {
             TextInput {
                 id: textInputTransferAmount
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -694,7 +694,7 @@ Rectangle {
         Text {
             id: textTransferAmountUnit
             color: "#999999"
-            text: "TRTL"
+            text: "MTIP"
             anchors.verticalCenter: rectangleTextInputTransferAmount.verticalCenter
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 14
@@ -784,7 +784,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputTransferPaymentID
-            color: "#555555"
+            color: "#BA9F81"
             anchors.right: parent.right
             anchors.rightMargin: 5
             anchors.top: textTransferPaymentIDWarning.bottom
@@ -797,7 +797,7 @@ Rectangle {
             TextInput {
                 id: textInputTransferPaymentID
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -830,7 +830,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputTransferFee
-            color: "#555555"
+            color: "#BA9F81"
             anchors.left: textTransferFeeDescr.left
             anchors.leftMargin: 0
             anchors.top: textTransferFeeDescr.bottom
@@ -842,7 +842,7 @@ Rectangle {
             TextInput {
                 id: textInputTransferFee
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -861,7 +861,7 @@ Rectangle {
         Text {
             id: textTransferFeeUnit
             color: "#999999"
-            text: "TRTL"
+            text: "MTIP"
             anchors.verticalCenter: rectangleTextInputTransferFee.verticalCenter
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 14
@@ -960,7 +960,7 @@ Rectangle {
                     rectangleTransfer.transferPaymentID = "";
                 }
                 rectangleTransfer.transferFee = textInputTransferFee.text
-                dialogConfirmTransfer.show(rectangleTransfer.transferRecipient, rectangleTransfer.transferAmount + " TRTL + " + rectangleTransfer.transferFee + " TRTL (fee)", rectangleTransfer.transferPaymentID);
+                dialogConfirmTransfer.show(rectangleTransfer.transferRecipient, rectangleTransfer.transferAmount + " MTIP + " + rectangleTransfer.transferFee + " MTIP (fee)", rectangleTransfer.transferPaymentID);
             }
         }
 

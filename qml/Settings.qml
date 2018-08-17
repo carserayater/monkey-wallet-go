@@ -13,7 +13,7 @@ Rectangle {
     anchors.horizontalCenter: parent.horizontalCenter
     width: parent.width
     height: parent.height
-    color: "#333333"
+    color: "#6E5501"
     visible: false
 
     Rectangle {
@@ -127,7 +127,7 @@ Rectangle {
 
     Rectangle {
         id: rectangleTextInputSettingsRemoteNodeAddress
-        color: "#555555"
+        color: "#BA9F81"
         height: 25
         width: 250
         anchors.verticalCenterOffset: 0
@@ -139,7 +139,7 @@ Rectangle {
         TextInput {
             id: textInputSettingsRemoteNodeAddress
             anchors.fill: parent
-            color: "#cfcfcf"
+            color: "#6E5501"
             text: ""
             rightPadding: 5
             leftPadding: 5
@@ -169,7 +169,7 @@ Rectangle {
 
     Rectangle {
         id: rectangleTextInputSettingsRemoteNodePort
-        color: "#555555"
+        color: "#BA9F81"
         height: 25
         width: 70
         anchors.verticalCenterOffset: 0
@@ -181,7 +181,7 @@ Rectangle {
         TextInput {
             id: textInputSettingsRemoteNodePort
             anchors.fill: parent
-            color: "#cfcfcf"
+            color: "#6E5501"
             text: ""
             rightPadding: 5
             leftPadding: 5

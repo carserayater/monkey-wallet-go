@@ -2,7 +2,6 @@
 package walletdmanager
 
 import (
-	"TurtleCoin-Nest/turtlecoinwalletdrpcgo"
 	"bufio"
 	"io"
 	"math/rand"
@@ -14,6 +13,8 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	"../turtlecoinwalletdrpcgo"
 
 	"github.com/mitchellh/go-ps"
 	"github.com/pkg/errors"
@@ -87,7 +88,7 @@ func RequestAvailableBalanceToBeSpent(transferFeeString string) (availableBalanc
 		return 0, err
 	}
 
-	transferFee, err := strconv.ParseFloat(transferFeeString, 64) // transferFee is expressed in TRTL
+	transferFee, err := strconv.ParseFloat(transferFeeString, 64) // transferFee is expressed in MTIP
 	if err != nil {
 		return 0, errors.New("fee is invalid")
 	}
@@ -139,7 +140,7 @@ func SendTransaction(transferAddress string, transferAmountString string, transf
 		return "", errors.New("wallet and/or blockchain not fully synced yet")
 	}
 
-	if !strings.HasPrefix(transferAddress, "TRTL") || (len(transferAddress) != 99 && len(transferAddress) != 187) {
+	if !strings.HasPrefix(transferAddress, "dicKTiPZ") || (len(transferAddress) != 102) {
 		return "", errors.New("address is invalid")
 	}
 
@@ -147,16 +148,16 @@ func SendTransaction(transferAddress string, transferAmountString string, transf
 		return "", errors.New("sending to yourself is not supported")
 	}
 
-	transferAmount, err := strconv.ParseFloat(transferAmountString, 64) // transferAmount is expressed in TRTL
+	transferAmount, err := strconv.ParseFloat(transferAmountString, 64) // transferAmount is expressed in MTIP
 	if err != nil {
 		return "", errors.New("amount is invalid")
 	}
 
 	if transferAmount <= 0 {
-		return "", errors.New("amount of TRTL to be sent should be greater than 0")
+		return "", errors.New("amount of MTIP to be sent should be greater than 0")
 	}
 
-	transferFee, err := strconv.ParseFloat(transferFeeString, 64) // transferFee is expressed in TRTL
+	transferFee, err := strconv.ParseFloat(transferFeeString, 64) // transferFee is expressed in MTIP
 	if err != nil {
 		return "", errors.New("fee is invalid")
 	}
@@ -342,9 +343,17 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 	rpcPassword = randStringBytesMaskImprSrc(20)
 
 	var turtleCoindCurrentSessionLogFile *os.File
+	// log.Error("pathToWalletd" + pathToWalletd)
+	// log.Error("pathToWallet" + pathToWallet)
+	// log.Error("pathToLogWalletdCurrentSession" + pathToLogWalletdCurrentSession)
+	// log.Error("walletPassword" + walletPassword)
+	// log.Error("daemonAddress" + daemonAddress)
+	// log.Error("daemonPort" + daemonPort)
+	// log.Error("walletdLogLevel" + walletdLogLevel)
+	// log.Error("rpcPassword" + rpcPassword)
 
 	if useRemoteNode {
-		cmdWalletd = exec.Command(pathToWalletd, "-w", pathToWallet, "-p", walletPassword, "-l", pathToLogWalletdCurrentSession, "--daemon-address", daemonAddress, "--daemon-port", daemonPort, "--log-level", walletdLogLevel, "--rpc-password", rpcPassword)
+		cmdWalletd = exec.Command(pathToWalletd, "-w", pathToWallet, "-p", walletPassword, "-l", pathToLogWalletdCurrentSession, "--daemon-address", daemonAddress, "--daemon-port", daemonPort, "--log-level", walletdLogLevel, "--rpc-password", rpcPassword, "--bind-port", "8070", "--bind-address", "127.0.0.1")
 	} else {
 		cmdWalletd = exec.Command(pathToWalletd, "-w", pathToWallet, "-p", walletPassword, "-l", pathToLogWalletdCurrentSession, "--log-level", walletdLogLevel, "--rpc-password", rpcPassword)
 	}

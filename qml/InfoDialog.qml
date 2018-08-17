@@ -13,7 +13,7 @@ Dialog {
     width: 900
 
     property var addressDev: "TRTLv3jzutiQwqHL3qFwsu5EVLWesxZr1AFQ4AuMR3SD56n3rkHDkwj79eKwvaiU1nYQWGydKoXM6fXyiiGKsPDnVCNXzNdusxx"
-    property var websiteChat: "http://chat.turtlecoin.lol"
+    property var websiteChat: "https://discord.gg/EAaKcCy"
     property var versionNest: ""
     property var newVersionNestAvailable: ""
     property var urlNewVersionNest: ""

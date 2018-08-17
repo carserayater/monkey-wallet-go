@@ -22,15 +22,15 @@ Button copy address | Pop up "Copied!" and address should be copied to clipboard
 Button copy tr. id | Pop up "Copied!" and tr. id should be copied to clipboard.
 Button explore transaction | Trtl explorer opens in default browser with the right transacton.
 Receive trtl | Balance updates automatically and new confirmed transaction added to list previous transactions
-Send TRTL, address diff. than 99 chars or 187 chars | error: address invalid
-Send TRTL, address not start by TRTL | error: address invalid
-Send TRTL, amount is 0 or less | error: amount should be greater than 0
-Send TRTL, amount is not a number | error: amount invalid
-Send TRTL, amount + fee is more than available balance | error: available balance is insufficient
-Send TRTL, small valid amount | dialog for confirming transfer. After confirmation, popup TRTL sent. amount is received on the other end
-Send TRTL, invalid payment id | error: wrong payment id format
-Send TRTL, valid payment id | popup TRTL sent. amount is received on the other end with correct payment id
-Send TRTL, valid integrated address | popup TRTL sent. amount is received on the other end with correct payment id from integrated address
+Send MTIP, address diff. than 99 chars or 187 chars | error: address invalid
+Send MTIP, address not start by MTIP | error: address invalid
+Send MTIP, amount is 0 or less | error: amount should be greater than 0
+Send MTIP, amount is not a number | error: amount invalid
+Send MTIP, amount + fee is more than available balance | error: available balance is insufficient
+Send MTIP, small valid amount | dialog for confirming transfer. After confirmation, popup MTIP sent. amount is received on the other end
+Send MTIP, invalid payment id | error: wrong payment id format
+Send MTIP, valid payment id | popup MTIP sent. amount is received on the other end with correct payment id
+Send MTIP, valid integrated address | popup MTIP sent. amount is received on the other end with correct payment id from integrated address
 Select the option local blockchain, restart | local blockchain should still be selected
 Open wallet with local blockchain selected and TurtleCoind started before | TurtleCoind should not be started automatically and should not close after wallet is closed
 Open wallet with local blockchain selected and TurtleCoind not started before | TurtleCoind should start automatically and should close after Nest is closed
@@ -41,7 +41,7 @@ Check wallet filename is displayed above address |
 Click Settings | Settings screen appears
 Close Settings | Settings screen disappears
 Settings: Enable display in USD -> Close Nest -> Reopen | Setting is still enabled
-Display in USD enabled -> Open a wallet| Balance is displayed in USD (under TRTL balance)
+Display in USD enabled -> Open a wallet| Balance is displayed in USD (under MTIP balance)
 Display in USD enabled -> type an amount to be transfered| Value is displayed in USD
 Settings: change remote node address and port -> click save -> close and reopen Nest | new address in remote node radio button and in settings
 Settings: click remote node reset to default -> close and reopen Nest | default address in remote node radio button and in settings

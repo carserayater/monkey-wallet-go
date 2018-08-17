@@ -15,7 +15,7 @@ The universal GUI wallet for TurtleCoin
 
 Important notes:
 
-* Make sure *Walletd.exe* or *Turtlecoind.exe* are not running before you start *TurtleCoin-Nest*
+* Make sure *Walletd.exe* or *Monkeytipsd.exe* are not running before you start *TurtleCoin-Nest*
 * When you open a wallet in TurtleCoin Nest, you will see a black empty *walletd* window. You must keep it open. It will close automatically when you close your wallet. If it does not close automatically a few seconds after you close your wallet, you can close it manually.
 
 ### Mac
@@ -27,7 +27,7 @@ Important notes:
 Important notes:
 
 * The wallets you create or generate will be saved to your home folder. You can keep them there or move them wherever you want.
-* Make sure *Walletd* or *Turtlecoind* are not running before you start *TurtleCoin-Nest*.
+* Make sure *Walletd* or *Monkeytipsd* are not running before you start *TurtleCoin-Nest*.
 * If you encounter crashes, open the activity monitor (in your app > utilities), and force quit *walletd* (if it is running) before opening a wallet. (this bug is being worked on).
 * The log files will be saved in ~/Library/Application Support/TurtleCoin-Nest/.
 
@@ -40,7 +40,7 @@ Important notes:
 
 Important notes:
 
-* Make sure *Walletd* or *Turtlecoind* are not running before you start *TurtleCoin-Nest*
+* Make sure *Walletd* or *Monkeytipsd* are not running before you start *TurtleCoin-Nest*
 * If you want the *copy address to clipboard* button to work, install *xclip* or *xsel* (on Debian/Ubuntu: `$ sudo apt install xclip`).
 * If you encounter crashes, open an activity monitor (e.g. `$ htop`), and quit *walletd* (if it is running) before opening a wallet. (this bug is being worked on)
 

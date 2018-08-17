@@ -15,7 +15,7 @@ Rectangle {
     Text {
         id: textOpenWalletDescr
         color: "#ffffff"
-        text: "If you are new to TurtleCoin, choose \"Create a new wallet\"."
+        text: "If you are new to MonkeyTips, choose \"Create a new wallet\"."
         anchors.right: parent.right
         anchors.rightMargin: 15
         anchors.left: parent.left
@@ -170,7 +170,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputExistingWalletPath
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 360
             anchors.top: textExistingWalletPathDescr.bottom
@@ -183,7 +183,7 @@ Rectangle {
                 id: textInputExistingWalletPath
                 readOnly: true
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -226,7 +226,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputExistingWalletPassword
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 200
             anchors.top: rectangleTextInputExistingWalletPath.top
@@ -239,7 +239,7 @@ Rectangle {
                 id: textInputExistingWalletPassword
                 echoMode: TextInput.Password
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -358,7 +358,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputCreateWalletFilename
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 200
             anchors.top: textCreateWalletFilenameDescr.bottom
@@ -370,8 +370,8 @@ Rectangle {
             TextInput {
                 id: textInputCreateWalletFilename
                 anchors.fill: parent
-                color: "#cfcfcf"
-                text: "myFirstTRTLWallet"
+                color: "#6E5501"
+                text: "myFirstMTIPWallet"
                 rightPadding: 5
                 leftPadding: 5
                 selectionColor: "#eeeeee"
@@ -446,7 +446,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputCreateWalletPassword
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 200
             anchors.top: rectangleTextInputCreateWalletFilename.top
@@ -459,7 +459,7 @@ Rectangle {
                 id: textInputCreateWalletPassword
                 echoMode: TextInput.Password
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -620,7 +620,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputImportWalletFilename
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 200
             anchors.top: textImportWalletFilenameDescr.bottom
@@ -632,8 +632,8 @@ Rectangle {
             TextInput {
                 id: textInputImportWalletFilename
                 anchors.fill: parent
-                color: "#cfcfcf"
-                text: "myTRTLWallet"
+                color: "#6E5501"
+                text: "myMTIPWallet"
                 rightPadding: 5
                 leftPadding: 5
                 selectionColor: "#eeeeee"
@@ -708,7 +708,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputImportWalletPassword
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             width: 200
             anchors.top: rectangleTextInputImportWalletFilename.top
@@ -721,7 +721,7 @@ Rectangle {
                 id: textInputImportWalletPassword
                 echoMode: TextInput.Password
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -756,7 +756,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputImportWalletSeed
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             anchors.top: textImportWalletSeedDescr.bottom
             anchors.topMargin: 15
@@ -769,7 +769,7 @@ Rectangle {
             TextInput {
                 id: textInputImportWalletSeed
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -805,7 +805,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputImportWalletPrivateViewKey
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             anchors.top: textImportWalletPrivateViewKeyDescr.bottom
             anchors.topMargin: 15
@@ -819,7 +819,7 @@ Rectangle {
             TextInput {
                 id: textInputImportWalletPrivateViewKey
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5
@@ -856,7 +856,7 @@ Rectangle {
 
         Rectangle {
             id: rectangleTextInputImportWalletPrivateSpendKey
-            color: "#555555"
+            color: "#BA9F81"
             height: 25
             anchors.top: textImportWalletPrivateSpendKeyDescr.bottom
             anchors.topMargin: 15
@@ -870,7 +870,7 @@ Rectangle {
             TextInput {
                 id: textInputImportWalletPrivateSpendKey
                 anchors.fill: parent
-                color: "#cfcfcf"
+                color: "#6E5501"
                 text: ""
                 rightPadding: 5
                 leftPadding: 5

@@ -1,8 +1,6 @@
 package main
 
 import (
-	"TurtleCoin-Nest/turtlecoinwalletdrpcgo"
-	"TurtleCoin-Nest/walletdmanager"
 	"database/sql"
 	"encoding/json"
 	"io"
@@ -17,6 +15,9 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"./turtlecoinwalletdrpcgo"
+	"./walletdmanager"
 
 	"github.com/atotto/clipboard"
 	"github.com/dustin/go-humanize"
@@ -39,7 +40,7 @@ var (
 	useRemoteNode               = true
 	displayFiatConversion       = false
 	stringBackupKeys            = ""
-	rateUSDTRTL                 float64 // USD value for 1 TRTL
+	rateUSDMTIP                 float64 // USD value for 1 MTIP
 	remoteDaemonAddress         = defaultRemoteDaemonAddress
 	remoteDaemonPort            = defaultRemoteDaemonPort
 	limitDisplayedTransactions  = true
@@ -124,7 +125,7 @@ type QmlBridge struct {
 		mnemonicSeed string,
 		confirmPasswordWallet string) `slot:"clickedButtonImport"`
 	_ func(remote bool)              `slot:"choseRemote"`
-	_ func(amountTRTL string) string `slot:"getTransferAmountUSD"`
+	_ func(amountMTIP string) string `slot:"getTransferAmountUSD"`
 	_ func()                         `slot:"clickedCloseSettings"`
 	_ func()                         `slot:"clickedSettingsButton"`
 	_ func(displayFiat bool)         `slot:"choseDisplayFiat"`
@@ -189,7 +190,7 @@ func main() {
 	log.WithField("version", versionNest).Info("Application started")
 
 	go func() {
-		requestRateTRTL()
+		requestRateMTIP()
 	}()
 
 	platform := "linux"
@@ -283,8 +284,8 @@ func connectQMLToGOFunctions() {
 		}()
 	})
 
-	qmlBridge.ConnectGetTransferAmountUSD(func(amountTRTL string) string {
-		return amountStringUSDToTRTL(amountTRTL)
+	qmlBridge.ConnectGetTransferAmountUSD(func(amountMTIP string) string {
+		return amountStringUSDToMTIP(amountMTIP)
 	})
 
 	qmlBridge.ConnectClickedButtonBackupWallet(func() {
@@ -410,7 +411,7 @@ func getAndDisplayBalances() {
 	if err == nil {
 		qmlBridge.DisplayAvailableBalance(humanize.FormatFloat("#,###.##", walletAvailableBalance))
 		qmlBridge.DisplayLockedBalance(humanize.FormatFloat("#,###.##", walletLockedBalance))
-		balanceUSD := walletTotalBalance * rateUSDTRTL
+		balanceUSD := walletTotalBalance * rateUSDMTIP
 		qmlBridge.DisplayTotalBalance(humanize.FormatFloat("#,###.##", walletTotalBalance), humanize.FormatFloat("#,###.##", balanceUSD))
 	}
 }
@@ -478,7 +479,7 @@ func getAndDisplayListTransactions(forceFullUpdate bool) {
 					amountString += "- "
 					amountString += strconv.FormatFloat(-amount, 'f', -1, 64)
 				}
-				amountString += " TRTL (fee: " + strconv.FormatFloat(transfer.Fee, 'f', 2, 64) + ")"
+				amountString += " MTIP (fee: " + strconv.FormatFloat(transfer.Fee, 'f', 2, 64) + ")"
 				confirmationsString := confirmationsStringRepresentation(transfer.Confirmations)
 				timeString := transfer.Timestamp.Format("2006-01-02 15:04:05")
 				transactionNumberString := strconv.Itoa(transactionNumber) + ")"
@@ -522,7 +523,7 @@ func transfer(transferAddress string, transferAmount string, transferPaymentID s
 	getAndDisplayBalances()
 	qmlBridge.ClearTransferAmount()
 	qmlBridge.FinishedSendingTransaction()
-	qmlBridge.DisplayPopup("TRTLs sent successfully", 4000)
+	qmlBridge.DisplayPopup("MTIPs sent successfully", 4000)
 }
 
 func optimizeWalletWithFusion() {
@@ -839,8 +840,8 @@ func openBrowser(url string) bool {
 	return cmd.Start() == nil
 }
 
-func requestRateTRTL() {
-	response, err := http.Get(urlCryptoCompareTRTL)
+func requestRateMTIP() {
+	response, err := http.Get(urlCryptoCompareMTIP)
 
 	if err != nil {
 		log.Error("error fetching from cryptocompare: ", err)
@@ -855,18 +856,18 @@ func requestRateTRTL() {
 				log.Error("error JSON unmarshaling request cryptocompare: ", err)
 			} else {
 				resultsMap := resultInterface.(map[string]interface{})
-				rateUSDTRTL = resultsMap["USD"].(float64)
+				rateUSDMTIP = resultsMap["USD"].(float64)
 			}
 		}
 	}
 }
 
-func amountStringUSDToTRTL(amountTRTLString string) string {
-	amountTRTL, err := strconv.ParseFloat(amountTRTLString, 64)
-	if err != nil || amountTRTL <= 0 || rateUSDTRTL == 0 {
+func amountStringUSDToMTIP(amountMTIPString string) string {
+	amountMTIP, err := strconv.ParseFloat(amountMTIPString, 64)
+	if err != nil || amountMTIP <= 0 || rateUSDMTIP == 0 {
 		return ""
 	}
-	amountUSD := amountTRTL * rateUSDTRTL
+	amountUSD := amountMTIP * rateUSDMTIP
 	amountUSDString := strconv.FormatFloat(amountUSD, 'f', 2, 64) + " $"
 	return amountUSDString
 }
